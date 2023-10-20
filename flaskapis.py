@@ -13,6 +13,8 @@ app = Flask(__name__)
 def hello(hr,temp,temp_min,temp_max,pressure,humidity,wind_speed,aqi):
     model = joblib.load('asthma_model.joblib')
 
-    prediction = model.predict([[hr,temp,temp_min,temp_max,pressure,humidity,wind_speed,aqi]])
+    prediction = model.predict([[temp,temp_min,temp_max,pressure,humidity,wind_speed,aqi,hr]])
     print(prediction)
-    return str(prediction[0])
+    return json.dumps({"value" : prediction[0]})
+
+requests.get("url")
