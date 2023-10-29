@@ -1,8 +1,8 @@
 //
 //  AppIntent.swift
-//  Breathe Easy Widget
+//  MonthWidget
 //
-//  Created by Amogh Kuppa on 10/28/23.
+//  Created by Aneesh Sonnekar on 10/28/23.
 //
 
 import WidgetKit
@@ -16,3 +16,5 @@ struct ConfigurationAppIntent: WidgetConfigurationIntent {
     @Parameter(title: "Favorite Emoji", default: "😃")
     var favoriteEmoji: String
 }
+
+
