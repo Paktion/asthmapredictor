@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import Charts
 struct Pf:Codable{
     let value:Float
 }
@@ -7,6 +8,10 @@ enum GHError: Error{
     case invalidURL
     case invalidResponse
     case invalidData
+}
+
+struct MyVars {
+    var DataPoints: [Double]
 }
 
 struct Home: View{
@@ -118,8 +123,8 @@ struct Home: View{
             }
             
             do{
-                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/11.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
-                try await Task.sleep(nanoseconds: 1_000_000_000)
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/12.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                try await Task.sleep(nanoseconds: 2_500_000_000)
             } catch GHError.invalidURL{
                 print("invalid URL")
             }catch GHError.invalidResponse{
@@ -132,7 +137,7 @@ struct Home: View{
             
             do{
                 user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/14.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
-                try await Task.sleep(nanoseconds: 1_000_000_000)
+                try await Task.sleep(nanoseconds: 2_500_000_000)
             } catch GHError.invalidURL{
                 print("invalid URL")
             }catch GHError.invalidResponse{
@@ -143,35 +148,10 @@ struct Home: View{
                 print("Error")
             }
             
-            do{
-                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/16.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
-                try await Task.sleep(nanoseconds: 1_000_000_000)
-            } catch GHError.invalidURL{
-                print("invalid URL")
-            }catch GHError.invalidResponse{
-                print("invalid response")
-            }catch GHError.invalidData{
-                print("invalid data")
-            }catch{
-                print("Error")
-            }
-            
-            do{
-                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/13.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
-                try await Task.sleep(nanoseconds: 1_000_000_000)
-            } catch GHError.invalidURL{
-                print("invalid URL")
-            }catch GHError.invalidResponse{
-                print("invalid response")
-            }catch GHError.invalidData{
-                print("invalid data")
-            }catch{
-                print("Error")
-            }
             
             do{
                 user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/11.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
-                try await Task.sleep(nanoseconds: 1_000_000_000)
+                try await Task.sleep(nanoseconds: 2_500_000_000)
             } catch GHError.invalidURL{
                 print("invalid URL")
             }catch GHError.invalidResponse{
@@ -183,8 +163,8 @@ struct Home: View{
             }
             
             do{
-                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/14.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
-                try await Task.sleep(nanoseconds: 1_000_000_000)
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/15.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                try await Task.sleep(nanoseconds: 2_500_000_000)
             } catch GHError.invalidURL{
                 print("invalid URL")
             }catch GHError.invalidResponse{
@@ -197,7 +177,7 @@ struct Home: View{
             
             do{
                 user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/17.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
-                try await Task.sleep(nanoseconds: 1_000_000_000)
+                try await Task.sleep(nanoseconds: 2_500_000_000)
             } catch GHError.invalidURL{
                 print("invalid URL")
             }catch GHError.invalidResponse{
@@ -210,7 +190,7 @@ struct Home: View{
             
             do{
                 user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/22.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
-                try await Task.sleep(nanoseconds: 1_000_000_000)
+                try await Task.sleep(nanoseconds: 2_500_000_000)
             } catch GHError.invalidURL{
                 print("invalid URL")
             }catch GHError.invalidResponse{
@@ -227,11 +207,13 @@ struct Home: View{
 }
 
 struct ViewTrends: View{
-    var body: some View{
-        ZStack{
-            Color(UIColor.darkGray).ignoresSafeArea()
-        }
-    }
+       var body: some View {
+           ZStack{
+               Color(UIColor.darkGray).ignoresSafeArea()
+               Image(systemName: "lungs.fill").foregroundColor(.white)
+               Text("Coming soon...").position(x: 197, y: 380).foregroundColor(.white)
+           }
+       }
 }
 
 struct ViewFamily: View{
@@ -242,7 +224,7 @@ struct ViewFamily: View{
     }
 }
 
-struct ViewInfo: View{
+struct ViewAbout: View{
     var body: some View{
         ZStack{
             Color(UIColor.darkGray).ignoresSafeArea()
@@ -268,10 +250,10 @@ struct ContentView: View {
                     Image(systemName: "person.2")
                     Text("Family")
                 }.toolbarBackground(Color.white, for: .tabBar)
-            ViewInfo()
+            ViewAbout()
                 .tabItem(){
                     Image(systemName: "info.circle")
-                    Text("Info")
+                    Text("About")
                 }.toolbarBackground(Color.white, for: .tabBar)
         }
     }
