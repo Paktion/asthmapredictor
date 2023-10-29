@@ -1,27 +1,5 @@
-//
-//  ContentView.swift
-//  Breathe Easy
-//
-//  Created by Amogh Kuppa on 10/28/23.
-//
-/*func apiCall() -> String{
-    if let url = URL(string: "http://127.0.0.1:5000/22.0/2.54/0.77/4.84/1040.0/98.0/0.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0") {
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                return
-            }
-            
-            if let data = data {
-                if let stringData = String(data: data, encoding: .utf8) {
-                    return "hi"
-                }
-            }
-        }
-    }
-}*/
-
 import Foundation
-// Usage of the function
+import SwiftUI
 struct Pf:Codable{
     let value:Float
 }
@@ -140,8 +118,6 @@ struct ViewInfo: View{
         }
     }
 }
-
-import SwiftUI
 
 struct ContentView: View {
     var body: some View{
