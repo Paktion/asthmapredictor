@@ -56,48 +56,53 @@ struct Home: View{
     var body: some View {
         ZStack{
             if user?.value ?? 0 >= 0 && user?.value ?? 0 < 0.50{
-                Color(UIColor.lightGray).ignoresSafeArea()
+                Color(UIColor.darkGray).ignoresSafeArea()
                 Text("Peak Flow")
-                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 200)
-                Image("lung50t1").resizable().frame(width: 300, height: 300)
+                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
+
+                Image("redt").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
-                    .font(.system(size: 35)).position(x:197,y:550)
+                    .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
             }
             else if user?.value ?? 0 >= 0.50 && user?.value ?? 0 < 0.60{
-                Color(UIColor.lightGray).ignoresSafeArea()
+                Color(UIColor.darkGray).ignoresSafeArea()
                 Text("Peak Flow")
-                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 200)
-                Image("60tfixed").resizable().frame(width: 300, height: 300)
+                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
+
+                Image("redt").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
-                    .font(.system(size: 35)).position(x:197,y:550)
+                    .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
             }
             else if user?.value ?? 0 >= 0.60 && user?.value ?? 0 < 0.70{
-                Color(UIColor.lightGray).ignoresSafeArea()
+                Color(UIColor.darkGray).ignoresSafeArea()
                 Text("Peak Flow")
-                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 200)
-                Image("70tfixed").resizable().frame(width: 300, height: 300)
+                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
+
+                Image("redt").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
-                    .font(.system(size: 35)).position(x:197,y:550)
+                    .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
             }
             else if user?.value ?? 0 >= 0.70 && user?.value ?? 0 < 0.80{
-                Color(UIColor.lightGray).ignoresSafeArea()
+                Color(UIColor.darkGray).ignoresSafeArea()
                 Text("Peak Flow")
-                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 200)
-                Image("80t").resizable().frame(width: 300, height: 300)
+                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
+
+                Image("redt").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
-                    .font(.system(size: 35)).position(x:197,y:550)
+                    .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
             }else if user?.value ?? 0 >= 0.80 {
-                Color(UIColor.lightGray).ignoresSafeArea()
+                Color(UIColor.darkGray).ignoresSafeArea()
                 Text("Peak Flow")
-                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 200)
-                Image("80plust").resizable().frame(width: 300, height: 300)
+                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
+
+                Image("redt").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
-                    .font(.system(size: 35)).position(x:197,y:550)
+                    .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
             }
         }
         .task{
             do{
-                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/10.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/12.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
             } catch GHError.invalidURL{
                 print("invalid URL")
             }catch GHError.invalidResponse{
@@ -112,26 +117,26 @@ struct Home: View{
     }
 }
 
-struct ViewB: View{
+struct ViewTrends: View{
     var body: some View{
         ZStack{
-            Color.red
+            Color(UIColor.darkGray).ignoresSafeArea()
         }
     }
 }
 
-struct ViewC: View{
+struct ViewFamily: View{
     var body: some View{
         ZStack{
-            Color.blue
+            Color(UIColor.darkGray).ignoresSafeArea()
         }
     }
 }
 
-struct Info: View{
+struct ViewInfo: View{
     var body: some View{
         ZStack{
-            Color.green
+            Color(UIColor.darkGray).ignoresSafeArea()
         }
     }
 }
@@ -145,22 +150,22 @@ struct ContentView: View {
                 .tabItem(){
                     Image(systemName: "lungs.fill")
                     Text("Home")
-                }
-            ViewB()
+                }.toolbarBackground(Color.white, for: .tabBar)
+            ViewTrends()
                 .tabItem(){
                     Image(systemName: "chart.line.uptrend.xyaxis")
                     Text("Trends")
-                }
-            ViewC()
+                }.toolbarBackground(Color.white, for: .tabBar)
+            ViewFamily()
                 .tabItem(){
                     Image(systemName: "person.2")
                     Text("Family")
-                }
-            Info()
+                }.toolbarBackground(Color.white, for: .tabBar)
+            ViewInfo()
                 .tabItem(){
                     Image(systemName: "info.circle")
                     Text("Info")
-                }
+                }.toolbarBackground(Color.white, for: .tabBar)
         }
     }
 }
