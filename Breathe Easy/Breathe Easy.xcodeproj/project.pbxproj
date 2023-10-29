@@ -82,8 +82,6 @@
 		AC4A5CDA2AED65BF0001CB8A /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		AC4A5CDC2AED65C10001CB8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC4A5CDE2AED65C10001CB8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F3BD6EF22AEE083200876264 /* Breathe Easy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Breathe Easy.entitlements"; sourceTree = "<group>"; };
-		F3BD6EF32AEE0C7A00876264 /* Breathe Easy WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Breathe Easy WidgetExtension.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +121,6 @@
 		AC4A5C932AED652A0001CB8A = {
 			isa = PBXGroup;
 			children = (
-				F3BD6EF32AEE0C7A00876264 /* Breathe Easy WidgetExtension.entitlements */,
 				AC4A5C9E2AED652A0001CB8A /* Breathe Easy */,
 				AC4A5CAF2AED652C0001CB8A /* Breathe EasyTests */,
 				AC4A5CB92AED652C0001CB8A /* Breathe EasyUITests */,
@@ -147,7 +144,6 @@
 		AC4A5C9E2AED652A0001CB8A /* Breathe Easy */ = {
 			isa = PBXGroup;
 			children = (
-				F3BD6EF22AEE083200876264 /* Breathe Easy.entitlements */,
 				AC4A5C9F2AED652A0001CB8A /* Breathe_EasyApp.swift */,
 				AC4A5CA12AED652A0001CB8A /* ContentView.swift */,
 				AC4A5CA32AED652C0001CB8A /* Assets.xcassets */,
@@ -196,19 +192,11 @@
 				AC4A5CD42AED65BF0001CB8A /* Breathe_Easy_WidgetBundle.swift */,
 				AC4A5CD62AED65BF0001CB8A /* Breathe_Easy_WidgetLiveActivity.swift */,
 				AC4A5CD82AED65BF0001CB8A /* Breathe_Easy_Widget.swift */,
-				F3BD6EF12AEE074600876264 /* New Group */,
 				AC4A5CDA2AED65BF0001CB8A /* AppIntent.swift */,
 				AC4A5CDC2AED65C10001CB8A /* Assets.xcassets */,
 				AC4A5CDE2AED65C10001CB8A /* Info.plist */,
 			);
 			path = "Breathe Easy Widget";
-			sourceTree = "<group>";
-		};
-		F3BD6EF12AEE074600876264 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -551,11 +539,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Breathe Easy/Breathe Easy.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Breathe Easy/Preview Content\"";
-				DEVELOPMENT_TEAM = Q327K34KM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -582,11 +568,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Breathe Easy/Breathe Easy.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Breathe Easy/Preview Content\"";
-				DEVELOPMENT_TEAM = Q327K34KM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -684,10 +668,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Breathe Easy WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5T89TLFZDJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Breathe Easy Widget/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Breathe Easy Widget";
@@ -698,7 +680,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.app.Breathe-easy";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.webview.Breathe-Easy.Breathe-Easy-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -712,10 +694,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "Breathe Easy WidgetExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5T89TLFZDJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Breathe Easy Widget/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Breathe Easy Widget";
@@ -726,7 +706,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.app.Breathe-easy";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.webview.Breathe-Easy.Breathe-Easy-Widget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
