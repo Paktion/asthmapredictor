@@ -47,7 +47,7 @@ struct Home: View{
                 Text("Peak Flow")
                     .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
 
-                Image("redt").resizable().frame(width: 300, height: 300)
+                Image("oranget").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
                     .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
             }
@@ -56,7 +56,7 @@ struct Home: View{
                 Text("Peak Flow")
                     .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
 
-                Image("redt").resizable().frame(width: 300, height: 300)
+                Image("yellowt").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
                     .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
             }
@@ -65,7 +65,7 @@ struct Home: View{
                 Text("Peak Flow")
                     .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
 
-                Image("redt").resizable().frame(width: 300, height: 300)
+                Image("lightgreent").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
                     .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
             }else if user?.value ?? 0 >= 0.80 {
@@ -73,14 +73,15 @@ struct Home: View{
                 Text("Peak Flow")
                     .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
 
-                Image("redt").resizable().frame(width: 300, height: 300)
+                Image("greent").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
                     .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
             }
         }
         .task{
             do{
-                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/12.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/9.0/1040.0/98.0/1.51/0.0/2.0/292.72/20.39/11.54/2.27/11.64/16.40/0.39/83.0")
+                try await Task.sleep(nanoseconds: 3_000_000_000)
             } catch GHError.invalidURL{
                 print("invalid URL")
             }catch GHError.invalidResponse{
@@ -90,6 +91,111 @@ struct Home: View{
             }catch{
                 print("Error")
             }
+            
+            do{
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/11.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+            } catch GHError.invalidURL{
+                print("invalid URL")
+            }catch GHError.invalidResponse{
+                print("invalid response")
+            }catch GHError.invalidData{
+                print("invalid data")
+            }catch{
+                print("Error")
+            }
+            
+            do{
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/14.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+            } catch GHError.invalidURL{
+                print("invalid URL")
+            }catch GHError.invalidResponse{
+                print("invalid response")
+            }catch GHError.invalidData{
+                print("invalid data")
+            }catch{
+                print("Error")
+            }
+            
+            do{
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/16.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+            } catch GHError.invalidURL{
+                print("invalid URL")
+            }catch GHError.invalidResponse{
+                print("invalid response")
+            }catch GHError.invalidData{
+                print("invalid data")
+            }catch{
+                print("Error")
+            }
+            
+            do{
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/13.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+            } catch GHError.invalidURL{
+                print("invalid URL")
+            }catch GHError.invalidResponse{
+                print("invalid response")
+            }catch GHError.invalidData{
+                print("invalid data")
+            }catch{
+                print("Error")
+            }
+            
+            do{
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/11.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+            } catch GHError.invalidURL{
+                print("invalid URL")
+            }catch GHError.invalidResponse{
+                print("invalid response")
+            }catch GHError.invalidData{
+                print("invalid data")
+            }catch{
+                print("Error")
+            }
+            
+            do{
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/14.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+            } catch GHError.invalidURL{
+                print("invalid URL")
+            }catch GHError.invalidResponse{
+                print("invalid response")
+            }catch GHError.invalidData{
+                print("invalid data")
+            }catch{
+                print("Error")
+            }
+            
+            do{
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/17.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+            } catch GHError.invalidURL{
+                print("invalid URL")
+            }catch GHError.invalidResponse{
+                print("invalid response")
+            }catch GHError.invalidData{
+                print("invalid data")
+            }catch{
+                print("Error")
+            }
+            
+            do{
+                user = try await getPf(url: "http://127.0.0.1:5000/22.0/15.0/15.0/22.0/1040.0/98.0/2.51/0.0/2.0/283.72/20.39/21.99/2.27/11.64/16.40/0.39/83.0")
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+            } catch GHError.invalidURL{
+                print("invalid URL")
+            }catch GHError.invalidResponse{
+                print("invalid response")
+            }catch GHError.invalidData{
+                print("invalid data")
+            }catch{
+                print("Error")
+            }
+            
         }
         
     }
