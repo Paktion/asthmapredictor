@@ -99,8 +99,8 @@ struct MonthWidgetEntryView : View {
     }
 }
 
-struct MonthWidget: Widget {
-    let kind: String = "MonthWidget"
+struct Breathe_Easy_Widget: Widget {
+    let kind: String = "Breathe_Easy_Widget"
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
@@ -127,7 +127,7 @@ extension ConfigurationAppIntent {
 }
 
 #Preview(as: .systemSmall) {
-    MonthWidget()
+    Breathe_Easy_Widget()
 } timeline: {
     DayEntry(date: .now, configuration: .smiley)
     DayEntry(date: .now, configuration: .starEyes)

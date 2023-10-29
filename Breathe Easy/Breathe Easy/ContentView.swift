@@ -31,7 +31,7 @@ enum GHError: Error{
     case invalidData
 }
 
-struct ViewA: View{
+struct Home: View{
     func getPf(url: String) async throws -> Pf{
         let endpoint = url
         
@@ -94,21 +94,6 @@ struct ViewA: View{
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
                     .font(.system(size: 35)).position(x:197,y:550)
             }
-            
-            
-            
-            
-            
-            //            VStack {
-            //                Text("Peak Flow")
-            //                    .font(.system(size: 24, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 200)
-            //                Image(systemName: "lungs")
-            //                    .imageScale(.large).position(x: 197,y: 220)
-            //                    .foregroundColor(.black)
-            //                Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
-            //                    .font(.title2).position(x:197)
-            //                    }
-            
         }
         .task{
             do{
@@ -143,25 +128,38 @@ struct ViewC: View{
     }
 }
 
+struct Info: View{
+    var body: some View{
+        ZStack{
+            Color.green
+        }
+    }
+}
+
 import SwiftUI
 
 struct ContentView: View {
     var body: some View{
         TabView{
-            ViewA()
+            Home()
                 .tabItem(){
-                    Image(systemName: "phone.fill")
-                    Text("Calls")
+                    Image(systemName: "lungs.fill")
+                    Text("Home")
                 }
             ViewB()
                 .tabItem(){
-                    Image(systemName: "person.2.fill")
-                    Text("Calls")
+                    Image(systemName: "chart.line.uptrend.xyaxis")
+                    Text("Trends")
                 }
             ViewC()
                 .tabItem(){
-                    Image(systemName: "person.fill")
-                    Text("Calls")
+                    Image(systemName: "person.2")
+                    Text("Family")
+                }
+            Info()
+                .tabItem(){
+                    Image(systemName: "info.circle")
+                    Text("Info")
                 }
         }
     }
