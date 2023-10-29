@@ -36,46 +36,71 @@ struct Home: View{
             if user?.value ?? 0 >= 0 && user?.value ?? 0 < 0.50{
                 Color(UIColor.darkGray).ignoresSafeArea()
                 Text("Peak Flow")
-                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
+                    .font(.system(size: 55, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
 
                 Image("redt").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
-                    .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
+                    .font(.system(size: 55, weight: .bold)).position(x:197,y:560).foregroundColor(Color(UIColor.systemGray5))
+                Text("of predicted maximum peak flow value")
+                    .font(.system(size: 15, weight: .bold)).position(x:197,y:605).foregroundColor(Color(UIColor.systemGray5))
+                Text("You may be at severe risk of an asthma attack")
+                    .font(.system(size: 15, weight: .bold)).position(x:197,y:650).foregroundColor(.red)
+                    .multilineTextAlignment(.center)
             }
             else if user?.value ?? 0 >= 0.50 && user?.value ?? 0 < 0.60{
                 Color(UIColor.darkGray).ignoresSafeArea()
                 Text("Peak Flow")
-                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
+                    .font(.system(size: 55, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
 
                 Image("oranget").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
-                    .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
+                    .font(.system(size: 55, weight: .bold)).position(x:197,y:560).foregroundColor(Color(UIColor.systemGray5))
+                Text("of predicted maximum peak flow value")
+                    .font(.system(size: 15, weight: .bold)).position(x:197,y:605).foregroundColor(Color(UIColor.systemGray5))
+                Text("You may be at moderate-severe risk of an asthma attack")
+                    .font(.system(size: 15, weight: .bold)).position(x:197,y:650).foregroundColor(.orange)
+                    .multilineTextAlignment(.center)
             }
             else if user?.value ?? 0 >= 0.60 && user?.value ?? 0 < 0.70{
                 Color(UIColor.darkGray).ignoresSafeArea()
                 Text("Peak Flow")
-                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
+                    .font(.system(size: 55, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
 
                 Image("yellowt").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
-                    .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
+                    .font(.system(size: 55, weight: .bold)).position(x:197,y:560).foregroundColor(Color(UIColor.systemGray5))
+                Text("of predicted maximum peak flow value")
+                    .font(.system(size: 15, weight: .bold)).position(x:197,y:605).foregroundColor(Color(UIColor.systemGray5))
+                Text("You may be at moderate risk of an asthma attack")
+                    .font(.system(size: 15, weight: .bold)).position(x:197,y:650).foregroundColor(.yellow)
+                    .multilineTextAlignment(.center)
             }
             else if user?.value ?? 0 >= 0.70 && user?.value ?? 0 < 0.80{
                 Color(UIColor.darkGray).ignoresSafeArea()
                 Text("Peak Flow")
-                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
+                    .font(.system(size: 55, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
 
                 Image("lightgreent").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
-                    .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
+                    .font(.system(size: 55, weight: .bold)).position(x:197,y:560).foregroundColor(Color(UIColor.systemGray5))
+                Text("of predicted maximum peak flow value")
+                    .font(.system(size: 15, weight: .bold)).position(x:197,y:605).foregroundColor(Color(UIColor.systemGray5))
+                Text("You may be at slight risk of an asthma attack")
+                    .font(.system(size: 15, weight: .bold)).position(x:197,y:650).foregroundColor(Color(UIColor.systemGreen))
+                    .multilineTextAlignment(.center)
             }else if user?.value ?? 0 >= 0.80 {
                 Color(UIColor.darkGray).ignoresSafeArea()
                 Text("Peak Flow")
-                    .font(.system(size: 35, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
+                    .font(.system(size: 55, weight: .bold)).multilineTextAlignment(.center).position(x: 197, y: 150).foregroundColor(Color(UIColor.systemGray5))
 
                 Image("greent").resizable().frame(width: 300, height: 300)
                 Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
-                    .font(.system(size: 35, weight: .bold)).position(x:197,y:530).foregroundColor(Color(UIColor.systemGray5))
+                    .font(.system(size: 55, weight: .bold)).position(x:197,y:560).foregroundColor(Color(UIColor.systemGray5))
+                Text("of predicted maximum peak flow value")
+                    .font(.system(size: 15, weight: .bold)).position(x:197,y:605).foregroundColor(Color(UIColor.systemGray5))
+                Text("You can breathe easy!")
+                    .font(.system(size: 15, weight: .bold)).position(x:197,y:650).foregroundColor(.green)
+                    .multilineTextAlignment(.center)
             }
         }
         .task{
