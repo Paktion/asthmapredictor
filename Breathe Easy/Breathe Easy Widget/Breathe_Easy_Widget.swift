@@ -1,3 +1,10 @@
+//
+//  MonthWidget.swift
+//  MonthWidget
+//
+//  Created by Aneesh Sonnekar on 10/28/23.
+//
+
 import WidgetKit
 import SwiftUI
 
@@ -30,46 +37,46 @@ struct DayEntry: TimelineEntry {
     let configuration: ConfigurationAppIntent
 }
 
-struct BreatheEasyWidgetView : View {
+struct MonthWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
         ZStack{
             
+            ContainerRelativeShape()
+                .fill(.white.gradient).ignoresSafeArea(.all)
             
-            Color(UIColor.darkGray)
-            let a = 94
+            
             VStack{
                 HStack{
-                    
+                    let a = 10
                     Spacer()
                 
                     if(a>80){
                         
-                        Image("greenlungs")
+                        Image("ulungs")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else if(a>70){
                         
-                        Image("lightgreenlungs")
+                        Image("umlungs")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else if(a>60){
                         
-                        Image("yellowlungs")
+                        Image("mlungs")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else if(a>50){
                         
-                        Image("orangelungs")
+                        Image("bmlungs")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else{
                         
-                        Image("redlungs")
+                        Image("blungs")
                             .resizable()
                         .frame(width: 100, height: 100)}
-                    
                 
                     
                 
@@ -81,11 +88,9 @@ struct BreatheEasyWidgetView : View {
                     Spacer()
                 }
                 
-                Text(String(a)+"%")
-                    .font(.system(size: 35, weight: .heavy))
-                    .foregroundColor(Color(UIColor.systemGray5).opacity(0.8))
-                    .multilineTextAlignment(.center).position(x: 65, y: 5)
-                    
+                Text("69%")
+                    .font(.system(size: 40, weight: .heavy))
+                    .foregroundColor(.black.opacity(0.8))
                 
             }
             .padding();
@@ -95,15 +100,15 @@ struct BreatheEasyWidgetView : View {
 }
 
 struct Breathe_Easy_Widget: Widget {
-    let kind: String = "BreatheEasyWidget"
+    let kind: String = "Breathe_Easy_Widget"
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            BreatheEasyWidgetView(entry: entry)
+            MonthWidgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }
         .contentMarginsDisabled()
-        .supportedFamilies([.systemSmall])
+        //.supportedFamilies([.systemSmall])
     }
 }
 
