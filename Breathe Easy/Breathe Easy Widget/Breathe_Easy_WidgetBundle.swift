@@ -9,9 +9,9 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct Breathe_Easy_WidgetBundle: WidgetBundle {
+struct BreathEasyWidgetBundle: WidgetBundle {
     var body: some Widget {
-        Breathe_Easy_Widget()
-        Breathe_Easy_WidgetLiveActivity()
+        BreatheEasyWidget()
+        BreatheEasyLiveActivity()
     }
 }

@@ -37,46 +37,47 @@ struct DayEntry: TimelineEntry {
     let configuration: ConfigurationAppIntent
 }
 
-struct MonthWidgetEntryView : View {
+struct BreatheEasyWidgetView : View {
     var entry: Provider.Entry
 
     var body: some View {
         ZStack{
             
-            ContainerRelativeShape()
-                .fill(.white.gradient).ignoresSafeArea(.all)
             
+            Color(UIColor.darkGray)
+            let a = 80
             
             VStack{
                 HStack{
-                    let a = 10
+                    
                     Spacer()
                 
                     if(a>80){
                         
-                        Image("ulungs")
+                        Image("greenlungs")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else if(a>70){
                         
-                        Image("umlungs")
+                        Image("lightgreenlungs")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else if(a>60){
                         
-                        Image("mlungs")
+                        Image("yellowlungs")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else if(a>50){
                         
-                        Image("bmlungs")
+                        Image("orangelungs")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else{
                         
-                        Image("blungs")
+                        Image("redlungs")
                             .resizable()
                         .frame(width: 100, height: 100)}
+                    
                 
                     
                 
@@ -88,9 +89,11 @@ struct MonthWidgetEntryView : View {
                     Spacer()
                 }
                 
-                Text("69%")
-                    .font(.system(size: 40, weight: .heavy))
-                    .foregroundColor(.black.opacity(0.8))
+                Text(String(a)+"%")
+                    .font(.system(size: 35, weight: .heavy))
+                    .foregroundColor(Color(UIColor.systemGray5).opacity(0.8))
+                    .multilineTextAlignment(.center).position(x: 65, y: 5)
+                    
                 
             }
             .padding();
@@ -99,12 +102,12 @@ struct MonthWidgetEntryView : View {
     }
 }
 
-struct Breathe_Easy_Widget: Widget {
-    let kind: String = "Breathe_Easy_Widget"
+struct BreatheEasyWidget: Widget {
+    let kind: String = "BreatheEasyWidget"
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            MonthWidgetEntryView(entry: entry)
+            BreatheEasyWidgetView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }
         .contentMarginsDisabled()
@@ -127,7 +130,7 @@ extension ConfigurationAppIntent {
 }
 
 #Preview(as: .systemSmall) {
-    Breathe_Easy_Widget()
+    BreatheEasyWidget()
 } timeline: {
     DayEntry(date: .now, configuration: .smiley)
     DayEntry(date: .now, configuration: .starEyes)

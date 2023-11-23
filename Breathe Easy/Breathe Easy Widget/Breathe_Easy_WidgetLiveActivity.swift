@@ -9,7 +9,7 @@ import ActivityKit
 import WidgetKit
 import SwiftUI
 
-struct Breathe_Easy_WidgetAttributes: ActivityAttributes {
+struct BreatheEasyWidgetAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
         var emoji: String
@@ -19,9 +19,9 @@ struct Breathe_Easy_WidgetAttributes: ActivityAttributes {
     var name: String
 }
 
-struct Breathe_Easy_WidgetLiveActivity: Widget {
+struct BreatheEasyLiveActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: Breathe_Easy_WidgetAttributes.self) { context in
+        ActivityConfiguration(for: BreatheEasyWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
                 Text("Hello \(context.state.emoji)")
@@ -56,25 +56,25 @@ struct Breathe_Easy_WidgetLiveActivity: Widget {
     }
 }
 
-extension Breathe_Easy_WidgetAttributes {
-    fileprivate static var preview: Breathe_Easy_WidgetAttributes {
-        Breathe_Easy_WidgetAttributes(name: "World")
+extension BreatheEasyWidgetAttributes {
+    fileprivate static var preview: BreatheEasyWidgetAttributes {
+        BreatheEasyWidgetAttributes(name: "World")
     }
 }
 
-extension Breathe_Easy_WidgetAttributes.ContentState {
-    fileprivate static var smiley: Breathe_Easy_WidgetAttributes.ContentState {
-        Breathe_Easy_WidgetAttributes.ContentState(emoji: "😀")
+extension BreatheEasyWidgetAttributes.ContentState {
+    fileprivate static var smiley: BreatheEasyWidgetAttributes.ContentState {
+        BreatheEasyWidgetAttributes.ContentState(emoji: "😀")
      }
      
-     fileprivate static var starEyes: Breathe_Easy_WidgetAttributes.ContentState {
-         Breathe_Easy_WidgetAttributes.ContentState(emoji: "🤩")
+     fileprivate static var starEyes: BreatheEasyWidgetAttributes.ContentState {
+         BreatheEasyWidgetAttributes.ContentState(emoji: "🤩")
      }
 }
 
-#Preview("Notification", as: .content, using: Breathe_Easy_WidgetAttributes.preview) {
-   Breathe_Easy_WidgetLiveActivity()
+#Preview("Notification", as: .content, using: BreatheEasyWidgetAttributes.preview) {
+   BreatheEasyLiveActivity()
 } contentStates: {
-    Breathe_Easy_WidgetAttributes.ContentState.smiley
-    Breathe_Easy_WidgetAttributes.ContentState.starEyes
+    BreatheEasyWidgetAttributes.ContentState.smiley
+    BreatheEasyWidgetAttributes.ContentState.starEyes
 }
