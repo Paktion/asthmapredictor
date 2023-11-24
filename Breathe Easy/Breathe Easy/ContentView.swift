@@ -1,6 +1,8 @@
 import Foundation
 import SwiftUI
 import Charts
+import Firebase
+import GoogleSignIn
 struct Pf:Codable{
     let value:Float
 }
@@ -205,19 +207,6 @@ struct Home: View{
     }
 }
 
-struct ViewTrends: View{
-       var body: some View {
-           ZStack{
-               Color(UIColor.darkGray).ignoresSafeArea()
-               VStack(alignment: .center){
-                   Image(systemName: "lungs.fill").foregroundColor(.white)
-                       .padding()
-                   Text("Coming soon...").foregroundColor(.white)
-               }
-           }
-       }
-}
-
 struct ViewAbout: View{
     var body: some View{
         ZStack(alignment: .center){
@@ -250,24 +239,49 @@ Breathe Easy is here to provide you with the tools you need to manage your asthm
     }
 
 struct ContentView: View {
+    @AppStorage("log_Status") var log_Status = false
+    @AppStorage("name") var name = ""
     var body: some View{
-        TabView{
-            Home()
-                .tabItem(){
-                    Image(systemName: "lungs.fill")
-                    Text("Home")
+        if log_Status{
+            TabView{
+                // HOME VIEW
+                Home()
+                    .tabItem(){
+                        Image(systemName: "lungs.fill")
+                        Text("Home")
+                    }.toolbarBackground(Color.white, for: .tabBar)
+                
+                // ABOUT VIEW
+                ViewAbout()
+                    .tabItem(){
+                        Image(systemName: "info.circle")
+                        Text("About")
+                    }.toolbarBackground(Color.white, for: .tabBar)
+                
+                // PROFILE VIEW
+                ZStack{
+                    Color(UIColor.darkGray).ignoresSafeArea()
+                    VStack(alignment: .center){
+                        Text(name).foregroundStyle(Color.white)
+                        
+                        Button("Logout"){
+                            GIDSignIn.sharedInstance.signOut()
+                            try? Auth.auth().signOut()
+                            
+                            withAnimation{
+                                log_Status = false
+                            }
+                        }
+                    }
+                }.tabItem(){
+                    Image(systemName: "person.fill")
+                    Text("Profile")
                 }.toolbarBackground(Color.white, for: .tabBar)
-            ViewTrends()
-                .tabItem(){
-                    Image(systemName: "chart.line.uptrend.xyaxis")
-                    Text("Trends")
-                }.toolbarBackground(Color.white, for: .tabBar)
-            ViewAbout()
-                .tabItem(){
-                    Image(systemName: "info.circle")
-                    Text("About")
-                }.toolbarBackground(Color.white, for: .tabBar)
+            }
+        }else{
+            LoginPage()
         }
+        
     }
 }
 

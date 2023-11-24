@@ -54,27 +54,27 @@ struct BreatheEasyWidgetView : View {
                 
                     if(a>80){
                         
-                        Image("greenlungs")
+                        Image("greent")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else if(a>70){
                         
-                        Image("lightgreenlungs")
+                        Image("lightgreent")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else if(a>60){
                         
-                        Image("yellowlungs")
+                        Image("yellowt")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else if(a>50){
                         
-                        Image("orangelungs")
+                        Image("oranget")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     else{
                         
-                        Image("redlungs")
+                        Image("redt")
                             .resizable()
                         .frame(width: 100, height: 100)}
                     

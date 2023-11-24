@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38BDC3992B10164100D212BF /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDC3982B10164100D212BF /* LoginPage.swift */; };
+		38BDC39D2B1029E500D212BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38BDC39C2B1029E500D212BF /* GoogleService-Info.plist */; };
+		38BDC3A12B10349600D212BF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 38BDC3A02B10349600D212BF /* FirebaseAuth */; };
+		38BDC3A32B10349600D212BF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 38BDC3A22B10349600D212BF /* FirebaseFirestore */; };
+		38BDC3A62B1034E800D212BF /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 38BDC3A52B1034E800D212BF /* GoogleSignIn */; };
 		AC4A5CA02AED652A0001CB8A /* Breathe_EasyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A5C9F2AED652A0001CB8A /* Breathe_EasyApp.swift */; };
 		AC4A5CA22AED652A0001CB8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4A5CA12AED652A0001CB8A /* ContentView.swift */; };
 		AC4A5CA42AED652C0001CB8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC4A5CA32AED652C0001CB8A /* Assets.xcassets */; };
@@ -63,6 +68,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38BDC3982B10164100D212BF /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		38BDC39C2B1029E500D212BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		38BDC39E2B102A4600D212BF /* Breathe-Easy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Breathe-Easy-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AC4A5C9C2AED652A0001CB8A /* Breathe Easy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Breathe Easy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4A5C9F2AED652A0001CB8A /* Breathe_EasyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breathe_EasyApp.swift; sourceTree = "<group>"; };
 		AC4A5CA12AED652A0001CB8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38BDC3A12B10349600D212BF /* FirebaseAuth in Frameworks */,
+				38BDC3A32B10349600D212BF /* FirebaseFirestore in Frameworks */,
+				38BDC3A62B1034E800D212BF /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38BDC3972B10161600D212BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38BDC3982B10164100D212BF /* LoginPage.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AC4A5C932AED652A0001CB8A = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +163,9 @@
 		AC4A5C9E2AED652A0001CB8A /* Breathe Easy */ = {
 			isa = PBXGroup;
 			children = (
+				38BDC39E2B102A4600D212BF /* Breathe-Easy-Info.plist */,
+				38BDC39C2B1029E500D212BF /* GoogleService-Info.plist */,
+				38BDC3972B10161600D212BF /* View */,
 				AC4A5C9F2AED652A0001CB8A /* Breathe_EasyApp.swift */,
 				AC4A5CA12AED652A0001CB8A /* ContentView.swift */,
 				AC4A5CA32AED652C0001CB8A /* Assets.xcassets */,
@@ -217,6 +239,11 @@
 				AC4A5CE02AED65C10001CB8A /* PBXTargetDependency */,
 			);
 			name = "Breathe Easy";
+			packageProductDependencies = (
+				38BDC3A02B10349600D212BF /* FirebaseAuth */,
+				38BDC3A22B10349600D212BF /* FirebaseFirestore */,
+				38BDC3A52B1034E800D212BF /* GoogleSignIn */,
+			);
 			productName = "Breathe Easy";
 			productReference = AC4A5C9C2AED652A0001CB8A /* Breathe Easy.app */;
 			productType = "com.apple.product-type.application";
@@ -309,6 +336,10 @@
 				Base,
 			);
 			mainGroup = AC4A5C932AED652A0001CB8A;
+			packageReferences = (
+				38BDC39F2B10349600D212BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				38BDC3A42B1034E800D212BF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			productRefGroup = AC4A5C9D2AED652A0001CB8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -327,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC4A5CA72AED652C0001CB8A /* Preview Assets.xcassets in Resources */,
+				38BDC39D2B1029E500D212BF /* GoogleService-Info.plist in Resources */,
 				AC4A5CA42AED652C0001CB8A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC4A5CA22AED652A0001CB8A /* ContentView.swift in Sources */,
+				38BDC3992B10164100D212BF /* LoginPage.swift in Sources */,
 				AC4A5CA02AED652A0001CB8A /* Breathe_EasyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +577,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Breathe Easy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Breathe-Easy-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -573,6 +607,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Breathe Easy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Breathe-Easy-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -764,6 +799,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		38BDC39F2B10349600D212BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.18.0;
+			};
+		};
+		38BDC3A42B1034E800D212BF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		38BDC3A02B10349600D212BF /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38BDC39F2B10349600D212BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		38BDC3A22B10349600D212BF /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38BDC39F2B10349600D212BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		38BDC3A52B1034E800D212BF /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38BDC3A42B1034E800D212BF /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC4A5C942AED652A0001CB8A /* Project object */;
 }
