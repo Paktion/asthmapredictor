@@ -16,6 +16,35 @@ struct MyVars {
     var DataPoints: [Double]
 }
 
+struct StartTracking: View{
+    var body: some View {
+        GeometryReader{ geometry in
+            ZStack{
+                Color(UIColor.darkGray).ignoresSafeArea()
+                VStack (spacing: 50){
+                    Text("Click below to start tracking").foregroundStyle(Color.white).font(.headline)
+                    Button{
+                        
+                    } label: {
+                        Text("Start Tracking")
+                            .padding()
+                            .frame(width: geometry.size.width * 0.6)
+                            .foregroundStyle(Color(red: 0.4627, green: 0.8392, blue: 1.0))
+                    }
+                    .background(Color(red: 72/255, green: 72/255, blue: 72/255))
+                    .cornerRadius(30)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color(red: 72/255, green: 72/255, blue: 72/255)))
+                    
+                    Spacer().frame(height: 20)
+                }
+                
+            }
+        }
+    }
+}
+
 struct Home: View{
     func getPf(url: String) async throws -> Pf{
         let endpoint = url
@@ -341,7 +370,8 @@ struct ContentView: View {
                 }.toolbarBackground(Color.white, for: .tabBar)
             }
         }else{
-             LoginPage()
+//             LoginPage()
+            StartTracking()
         }
         
     }
