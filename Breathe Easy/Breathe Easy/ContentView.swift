@@ -22,24 +22,30 @@ struct StartTracking: View{
             ZStack{
                 Color(UIColor.darkGray).ignoresSafeArea()
                 VStack (spacing: 50){
-                    Text("Click below to start tracking").foregroundStyle(Color.white).font(.headline)
+                    Text("Receive real-time alerts regarding your asthma risks. Powered by Machine Learning.")
+                        .multilineTextAlignment(.center)
+                        .foregroundStyle(Color.white)
+                        .font(.system(.title2, design: .rounded))
+                        .fontWeight(.bold)
                     Button{
-                        
+
                     } label: {
                         Text("Start Tracking")
                             .padding()
                             .frame(width: geometry.size.width * 0.6)
                             .foregroundStyle(Color(red: 0.4627, green: 0.8392, blue: 1.0))
+                            .font(.system(.title2, design: .rounded))
+                            .fontWeight(.bold)
                     }
                     .background(Color(red: 72/255, green: 72/255, blue: 72/255))
                     .cornerRadius(30)
                     .overlay(
                         RoundedRectangle(cornerRadius: 30)
                             .stroke(Color(red: 72/255, green: 72/255, blue: 72/255)))
-                    
+
                     Spacer().frame(height: 20)
                 }
-                
+
             }
         }
     }
@@ -278,22 +284,31 @@ struct ProfileView: View{
     var body: some View{
         NavigationView {
             ZStack{
-                Color(UIColor.systemGray5).ignoresSafeArea()
+                Color(UIColor.darkGray).ignoresSafeArea()
                 VStack {
+                    
+                    VStack{
+                        HStack{
+                            Text("Nikhil Kumar")
+                                .font(.largeTitle).foregroundStyle(Color(UIColor.systemGray5)).fontWeight(.bold)
+                            Spacer()
+                        }
+                        .padding(EdgeInsets(top: 10, leading: 21, bottom: 10, trailing: 21))
+                        Divider().background(Color(UIColor.systemGray5))
+                    }
                     
                     // log out button
                     Button{
                         showAlertLogOut = true
                     } label: {
                         VStack{
-                            Divider()
                             HStack{
                                 Text("Log Out")
-                                    .font(.body).foregroundStyle(Color(UIColor.black))
+                                    .font(.body).foregroundStyle(Color(UIColor.systemGray5))
                                 Spacer()
                             }
                             .padding(EdgeInsets(top: 10, leading: 21, bottom: 10, trailing: 21))
-                            Divider()
+                            Divider().background(Color(UIColor.systemGray5))
                         }
                     }
                     .alert("Are you sure?", isPresented: $showAlertLogOut, actions: {
@@ -318,7 +333,7 @@ struct ProfileView: View{
                                 Spacer()
                             }
                             .padding(EdgeInsets(top: 10, leading: 21, bottom: 10, trailing: 21))
-                            Divider()
+                            Divider().background(Color(UIColor.systemGray5))
                         }
                     }
                     .alert("Are you sure?", isPresented: $showAlertDel, actions: {
@@ -345,7 +360,7 @@ struct ProfileView: View{
                     })
                     Spacer()
                 }
-                .navigationBarTitle(Text(name))
+//                .navigationBarTitle(Text(name))
             }
         }
     }
@@ -380,6 +395,7 @@ struct ContentView: View {
         }else{
              LoginPage()
 //            StartTracking()
+//            ProfileView()
         }
         
     }
