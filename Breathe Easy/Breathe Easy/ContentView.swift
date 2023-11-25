@@ -241,6 +241,8 @@ Breathe Easy is here to provide you with the tools you need to manage your asthm
 struct ContentView: View {
     @AppStorage("log_Status") var log_Status = false
     @AppStorage("name") var name = ""
+    @State private var showAlertDel = false
+    @State private var showAlertLogOut = false
     var body: some View{
         if log_Status{
             TabView{
@@ -259,19 +261,76 @@ struct ContentView: View {
                     }.toolbarBackground(Color.white, for: .tabBar)
                 
                 // PROFILE VIEW
-                ZStack{
-                    Color(UIColor.darkGray).ignoresSafeArea()
-                    VStack(alignment: .center){
-                        Text(name).foregroundStyle(Color.white)
-                        
-                        Button("Logout"){
-                            GIDSignIn.sharedInstance.signOut()
-                            try? Auth.auth().signOut()
+                NavigationView {
+                    ZStack{
+                        Color(UIColor.systemGray5).ignoresSafeArea()
+                        VStack {
                             
-                            withAnimation{
-                                log_Status = false
+                            // log out button
+                            Button{
+                                showAlertLogOut = true
+                            } label: {
+                                VStack{
+                                    Divider()
+                                    HStack{
+                                        Text("Log Out")
+                                            .font(.body).foregroundStyle(Color(UIColor.black))
+                                        Spacer()
+                                    }
+                                    .padding(EdgeInsets(top: 10, leading: 21, bottom: 10, trailing: 21))
+                                    Divider()
+                                }
                             }
+                            .alert("Are you sure?", isPresented: $showAlertLogOut, actions: {
+                                Button("Log Out", role: .destructive) {
+                                    GIDSignIn.sharedInstance.signOut()
+                                    try? Auth.auth().signOut()
+                                    
+                                    withAnimation{
+                                        log_Status = false
+                                    }
+                                }
+                            })
+                            
+                            // delete account button
+                            Button{
+                                showAlertDel = true
+                            } label: {
+                                VStack{
+                                    HStack{
+                                        Text("Delete Account")
+                                            .font(.body).foregroundStyle(Color.red)
+                                        Spacer()
+                                    }
+                                    .padding(EdgeInsets(top: 10, leading: 21, bottom: 10, trailing: 21))
+                                    Divider()
+                                }
+                            }
+                            .alert("Are you sure?", isPresented: $showAlertDel, actions: {
+                                Button("Delete", role: .destructive) {
+                                    let user = Auth.auth().currentUser
+                                    
+                                    user?.delete { error in
+                                        if let error = error {
+                                            print(error.localizedDescription)
+                                        } else {
+                                            print("Deletion Success")
+                                        }
+                                    }
+                                    
+                                    GIDSignIn.sharedInstance.signOut()
+                                    try? Auth.auth().signOut()
+                                    
+                                    withAnimation{
+                                        log_Status = false
+                                    }
+                                }
+                            }, message: {
+                                Text("Deleting this account will delete all stored data")
+                            })
+                            Spacer()
                         }
+                        .navigationBarTitle(Text(name))
                     }
                 }.tabItem(){
                     Image(systemName: "person.fill")
@@ -279,7 +338,7 @@ struct ContentView: View {
                 }.toolbarBackground(Color.white, for: .tabBar)
             }
         }else{
-            LoginPage()
+             LoginPage()
         }
         
     }

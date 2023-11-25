@@ -19,34 +19,36 @@ struct LoginPage: View {
     
     var body: some View {
         GeometryReader{ geometry in
-            VStack(spacing: 20){
-                Color(UIColor.darkGray).ignoresSafeArea()
-                
-                // Sign In Button
-                
-                Button{
-                    handleLogin()
-                } label: {
-                    HStack(spacing: 14){
-                        Image("colorG")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 28, height: 28)
-                            .cornerRadius(14)
-                        Text("Sign in with Google")
-                            .font(.headline)
-                            .fontWeight(.medium)
-                            .foregroundColor(.black)
+            VStack{
+                Text("Welcome").foregroundStyle(Color(UIColor.systemGray5))
+                Text("Sign in").foregroundStyle(Color(UIColor.systemGray5))
+                VStack(alignment: .center){
+                    Color(UIColor.darkGray).ignoresSafeArea()
+                    // Sign In Button
+                    Button{
+                        handleLogin()
+                    } label: {
+                        HStack(spacing: 14){
+                            Image("colorG")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 28, height: 28)
+                                .cornerRadius(14)
+                            Text("Sign in with Google")
+                                .font(.headline)
+                                .fontWeight(.medium)
+                                .foregroundColor(.black)
+                        }
+                        .padding()
+                        .frame(width: geometry.size.width * 0.9)
                     }
-                    .padding()
-                    .frame(width: geometry.size.width * 0.9)
+                    .background(Color.white)
+                    .cornerRadius(30)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 30)
+                            .stroke(Color.white))
+                    
                 }
-                .background(Color.white)
-                .cornerRadius(30)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(Color.black))
-                
             }
             .overlay(
                 ZStack{
@@ -62,6 +64,7 @@ struct LoginPage: View {
                     }
                 }
             )
+            
         }
         .background(Color(UIColor.darkGray))
     }
