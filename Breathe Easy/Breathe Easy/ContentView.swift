@@ -44,7 +44,8 @@ struct Home: View{
             VStack(alignment: .center){
                 if user?.value ?? 0 >= 0 && user?.value ?? 0 < 0.50{
                     Text("Peak Flow")
-                        .font(.system(size: 55, weight: .bold)).multilineTextAlignment(.center).foregroundStyle(Color(UIColor.systemGray5))
+                        .font(.system(size: 55, weight: .bold, design: .rounded))
+                        .multilineTextAlignment(.center).foregroundStyle(Color(UIColor.systemGray5))
                     Image("redt").resizable().frame(width: 300, height: 300)
                     Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
                         .font(.system(size: 55, weight: .bold)).foregroundStyle(Color(UIColor.systemGray5))
@@ -57,7 +58,7 @@ struct Home: View{
                 }
                 else if user?.value ?? 0 >= 0.50 && user?.value ?? 0 < 0.60{
                     Text("Peak Flow")
-                        .font(.system(size: 55, weight: .bold)).multilineTextAlignment(.center).foregroundStyle(Color(UIColor.systemGray5))
+                        .font(.system(size: 55, weight: .bold, design: .rounded)).multilineTextAlignment(.center).foregroundStyle(Color(UIColor.systemGray5))
                     Image("oranget").resizable().frame(width: 300, height: 300)
                     Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
                         .font(.system(size: 55, weight: .bold)).foregroundStyle(Color(UIColor.systemGray5))
@@ -70,7 +71,7 @@ struct Home: View{
                 }
                 else if user?.value ?? 0 >= 0.60 && user?.value ?? 0 < 0.70{
                     Text("Peak Flow")
-                        .font(.system(size: 55, weight: .bold)).multilineTextAlignment(.center).foregroundStyle(Color(UIColor.systemGray5))
+                        .font(.system(size: 55, weight: .bold, design: .rounded)).multilineTextAlignment(.center).foregroundStyle(Color(UIColor.systemGray5))
                     Image("yellowt").resizable().frame(width: 300, height: 300)
                     Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
                         .font(.system(size: 55, weight: .bold)).foregroundStyle(Color(UIColor.systemGray5))
@@ -83,7 +84,8 @@ struct Home: View{
                 }
                 else if user?.value ?? 0 >= 0.70 && user?.value ?? 0 < 0.80{
                     Text("Peak Flow")
-                        .font(.system(size: 55, weight: .bold)).multilineTextAlignment(.center).foregroundStyle(Color(UIColor.systemGray5))
+                        .font(.system(size: 55, weight: .bold, design: .rounded))
+                        .multilineTextAlignment(.center).foregroundStyle(Color(UIColor.systemGray5))
                     Image("lightgreent").resizable().frame(width: 300, height: 300)
                     Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
                         .font(.system(size: 55, weight: .bold)).foregroundStyle(Color(UIColor.systemGray5))
@@ -95,7 +97,8 @@ struct Home: View{
                         .multilineTextAlignment(.center)
                 }else if user?.value ?? 0 >= 0.80 {
                     Text("Peak Flow")
-                        .font(.system(size: 55, weight: .bold)).multilineTextAlignment(.center).foregroundStyle(Color(UIColor.systemGray5))
+                        .font(.system(size: 55, weight: .bold, design: .rounded))
+                        .multilineTextAlignment(.center).foregroundStyle(Color(UIColor.systemGray5))
                     Image("greent").resizable().frame(width: 300, height: 300)
                     Text(String(format: "%.0f%%",(user?.value ?? 0)*100))
                         .font(.system(size: 55, weight: .bold)).foregroundStyle(Color(UIColor.systemGray5))

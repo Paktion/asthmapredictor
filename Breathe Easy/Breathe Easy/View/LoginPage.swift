@@ -1,10 +1,3 @@
-//
-//  LoginPage.swift
-//  Breathe Easy
-//
-//  Created by Nikhil Kumar on 11/23/23.
-//
-
 import SwiftUI
 import Firebase
 import GoogleSignIn
@@ -19,34 +12,62 @@ struct LoginPage: View {
     
     var body: some View {
         GeometryReader{ geometry in
-            VStack{
-                Text("Welcome").foregroundStyle(Color(UIColor.systemGray5))
-                Text("Sign in").foregroundStyle(Color(UIColor.systemGray5))
+            VStack(spacing: 1){
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Text("Welcome to").foregroundStyle(Color(UIColor.systemGray5))
+                    .font(.system(size: UIScreen.main.bounds.height / 15, design: .rounded))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    
+                Text("Breathe Easy").foregroundStyle(Color(red: 0.4627, green: 0.8392, blue: 1.0))
+                    .font(.system(size: UIScreen.main.bounds.height / 15, design: .rounded))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .padding()
+                Text("your personal asthma assistant").foregroundStyle(Color(UIColor.systemGray5))
+                    .font(.system(size: UIScreen.main.bounds.height / 35, design: .rounded))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Text("Sign in to get started").foregroundStyle(Color(UIColor.systemGray5))
+                    .font(.system(.title3, design: .rounded))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                Spacer()
+                Spacer()
+                Button{
+                    handleLogin()
+                } label: {
+                    HStack(spacing: 14){
+                        Image("colorG")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 28, height: 28)
+                            .cornerRadius(14)
+                        Text("Sign in with Google")
+                            .font(.headline)
+                            .fontWeight(.medium)
+                            .foregroundColor(.black)
+                    }
+                    .padding()
+                    .frame(width: geometry.size.width * 0.9)
+                }
+                .background(Color.white)
+                .cornerRadius(25)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 30)
+                        .stroke(Color.white))
+                
                 VStack(alignment: .center){
                     Color(UIColor.darkGray).ignoresSafeArea()
-                    // Sign In Button
-                    Button{
-                        handleLogin()
-                    } label: {
-                        HStack(spacing: 14){
-                            Image("colorG")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 28, height: 28)
-                                .cornerRadius(14)
-                            Text("Sign in with Google")
-                                .font(.headline)
-                                .fontWeight(.medium)
-                                .foregroundColor(.black)
-                        }
-                        .padding()
-                        .frame(width: geometry.size.width * 0.9)
-                    }
-                    .background(Color.white)
-                    .cornerRadius(30)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 30)
-                            .stroke(Color.white))
+                   
                     
                 }
             }
@@ -95,7 +116,7 @@ struct LoginPage: View {
 //                return
 //            }
             
-            guard 
+            guard
                 let user = result?.user,
                 let idToken = user.idToken?.tokenString
             else {
