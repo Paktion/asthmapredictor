@@ -289,12 +289,11 @@ struct ProfileView: View{
                     
                     VStack{
                         HStack{
-                            Text("Nikhil Kumar")
+                            Text(name)
                                 .font(.largeTitle).foregroundStyle(Color(UIColor.systemGray5)).fontWeight(.bold)
                             Spacer()
                         }
                         .padding(EdgeInsets(top: 10, leading: 21, bottom: 10, trailing: 21))
-                        Divider().background(Color(UIColor.systemGray5))
                     }
                     
                     // log out button
@@ -302,6 +301,7 @@ struct ProfileView: View{
                         showAlertLogOut = true
                     } label: {
                         VStack{
+                            Divider().background(Color(UIColor.systemGray5))
                             HStack{
                                 Text("Log Out")
                                     .font(.body).foregroundStyle(Color(UIColor.systemGray5))
@@ -393,9 +393,9 @@ struct ContentView: View {
                 }.toolbarBackground(Color.white, for: .tabBar)
             }
         }else{
-             LoginPage()
+//             LoginPage()
 //            StartTracking()
-//            ProfileView()
+            ProfileView()
         }
         
     }
