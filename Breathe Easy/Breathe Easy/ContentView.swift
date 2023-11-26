@@ -278,6 +278,7 @@ Breathe Easy is here to provide you with the tools you need to manage your asthm
 
 struct ProfileView: View{
     @AppStorage("log_Status") var log_Status = false
+    @AppStorage("log_Status2") var log_Status2 = false
     @AppStorage("name") var name = ""
     @State private var showAlertDel = false
     @State private var showAlertLogOut = false
@@ -313,11 +314,22 @@ struct ProfileView: View{
                     }
                     .alert("Are you sure?", isPresented: $showAlertLogOut, actions: {
                         Button("Log Out", role: .destructive) {
-                            GIDSignIn.sharedInstance.signOut()
-                            try? Auth.auth().signOut()
-                            
-                            withAnimation{
-                                log_Status = false
+                            if log_Status{
+                                GIDSignIn.sharedInstance.signOut()
+                                try? Auth.auth().signOut()
+                                withAnimation{
+                                    log_Status = false
+                                }
+                            }
+                            else if log_Status2{
+                                DispatchQueue.global(qos: .background).async {
+                                    
+                                    try? Auth.auth().signOut()
+                                }
+                                
+                                withAnimation{
+                                    log_Status2 = false
+                                }
                             }
                         }
                     })
@@ -353,6 +365,7 @@ struct ProfileView: View{
                             
                             withAnimation{
                                 log_Status = false
+                                log_Status2 = false
                             }
                         }
                     }, message: {
@@ -368,8 +381,9 @@ struct ProfileView: View{
 
 struct ContentView: View {
     @AppStorage("log_Status") var log_Status = false
+    @AppStorage("log_Status2") var log_Status2 = false
     var body: some View{
-        if log_Status{
+        if (log_Status || log_Status2){
             TabView{
                 // HOME VIEW
                 Home()
@@ -393,9 +407,9 @@ struct ContentView: View {
                 }.toolbarBackground(Color.white, for: .tabBar)
             }
         }else{
-//             LoginPage()
+             LoginPage()
 //            StartTracking()
-            ProfileView()
+//            ProfileView()
         }
         
     }

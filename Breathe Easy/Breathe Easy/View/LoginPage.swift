@@ -1,14 +1,19 @@
 import SwiftUI
 import Firebase
 import GoogleSignIn
+import AuthenticationServices
 
 struct LoginPage: View {
     
     // Loading Indicator
     @State var isLoading: Bool = false
     
+    // For Google Sign In
     @AppStorage("log_Status") var log_Status = false
     @AppStorage("name") var name = ""
+    
+    // For Apple Sign In
+    @StateObject var loginData = LoginViewModel()
     
     var body: some View {
         GeometryReader{ geometry in
@@ -45,25 +50,63 @@ struct LoginPage: View {
                 Button{
                     handleLogin()
                 } label: {
-                    HStack(spacing: 14){
+                    HStack(spacing: 0){
                         Image("colorG")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 28, height: 28)
                             .cornerRadius(14)
                         Text("Sign in with Google")
-                            .font(.headline)
+                            .font(.system(size: 21))
                             .fontWeight(.medium)
                             .foregroundColor(.black)
                     }
-                    .padding()
-                    .frame(width: geometry.size.width * 0.9)
+//                    .padding()
+                    .frame(width: geometry.size.width * 0.9, height: 55)
                 }
                 .background(Color.white)
-                .cornerRadius(25)
+                .cornerRadius(10)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 30)
+                    RoundedRectangle(cornerRadius: 10)
                         .stroke(Color.white))
+                
+                Spacer()
+                Spacer()
+                
+                // Put Apple Sign In button here
+                
+                SignInWithAppleButton { (request) in
+                    
+                    // requesting parameters from apple login
+                    loginData.nonce = randomNonceString()
+                    request.requestedScopes = [.email, .fullName]
+                    request.nonce = sha256(loginData.nonce)
+                    
+                } onCompletion: { (result) in
+                    
+                    // getting error or success
+                    
+                    switch result{
+                    case .success(let user):
+                        print("success")
+                        
+                        // do login with firebase
+                        guard let credential = user.credential as? ASAuthorizationAppleIDCredential else{
+                            print("error with firebase")
+                            return
+                        }
+                        loginData.authenticate(credential: credential)
+                    case.failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+                .signInWithAppleButtonStyle(.black)
+                .frame(width: geometry.size.width * 0.9)
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.black))
+                .frame(height: 55)
                 
                 VStack(alignment: .center){
                     Color(UIColor.darkGray).ignoresSafeArea()
@@ -85,6 +128,7 @@ struct LoginPage: View {
                     }
                 }
             )
+
             
         }
         .background(Color(UIColor.darkGray))
